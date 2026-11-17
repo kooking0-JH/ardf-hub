@@ -824,6 +824,34 @@ table.cmp td .mono { font-size: 0.92em; }
 html.embedded .page { padding-bottom: 24px; }
 @media (max-width: 720px) { .cards, .hub-jump { grid-template-columns: 1fr; } }
 </style>
+<style>
+/* 홍보 포스터 */
+.posters { margin-top: 64px; display: grid; gap: 10px; }
+.posters h2 { font-size: var(--step-3); }
+.posters-lead { color: var(--ink-2); font-size: 0.95rem; }
+.poster-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 6px; }
+.poster { margin: 0; display: grid; gap: 10px; }
+.poster-open { position: relative; display: block; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; cursor: zoom-in;
+  box-shadow: 0 2px 4px rgba(0,0,0,.06), 0 12px 28px rgba(0,0,0,.12); transition: transform .15s, box-shadow .15s; }
+.poster-open:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,.08), 0 18px 36px rgba(0,0,0,.16); }
+.poster-open:focus-visible { outline: 3px solid var(--flag); outline-offset: 3px; }
+.poster-open img { display: block; width: 100%; height: auto; border-radius: 4px; aspect-ratio: 720 / 1290; object-fit: cover; }
+.poster-open .zoom { position: absolute; right: 18px; top: 18px; font: 600 0.8rem var(--font-body); color: #fff; background: rgba(27,36,32,.82); border-radius: 6px; padding: 6px 10px; }
+.poster figcaption { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; font-size: 0.88rem; color: var(--ink-2); }
+.dl { font: 600 0.85rem/1 var(--font-body); color: var(--ink); text-decoration: none; border: 1.5px solid var(--ink); border-radius: 6px; padding: 8px 12px; background: #fff; box-shadow: 0 2px 0 var(--ink); white-space: nowrap; }
+.dl:hover { background: var(--tint); }
+.dl:active { transform: translateY(2px); box-shadow: 0 0 0 var(--ink); }
+.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(10,14,12,.92); display: flex; flex-direction: column; align-items: center; padding: 12px; gap: 10px; }
+.lightbox[hidden] { display: none; }
+.lb-bar { display: flex; gap: 8px; align-self: flex-end; }
+.lb-btn { font: 600 0.9rem/1 var(--font-body); color: var(--ink); background: #fff; border: 0; border-radius: 7px; padding: 10px 14px; cursor: pointer; text-decoration: none; box-shadow: 0 2px 0 #7d8a83; }
+#lb-img { max-width: 100%; max-height: calc(100vh - 80px); object-fit: contain; border-radius: 4px; }
+@media (max-width: 640px) {
+  .poster-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding: 4px 4px 14px; margin: 0 -4px; -webkit-overflow-scrolling: touch; }
+  .poster { flex: 0 0 78%; scroll-snap-align: center; }
+  .posters-lead::after { content: " 옆으로 넘겨 보십시오."; }
+}
+</style>
 
 </head>
 <body>
@@ -963,6 +991,42 @@ html.embedded .page { padding-bottom: 24px; }
   </div>
 </section>
 
+<!-- ===================== 홍보 포스터 ===================== -->
+<section class="posters" id="posters" aria-labelledby="posters-title">
+  <h2 id="posters-title">홍보 포스터</h2>
+  <p class="posters-lead">행사 안내나 단체방에 자유롭게 퍼 가셔도 됩니다. 포스터를 누르면 크게 볼 수 있습니다.</p>
+  <div class="poster-row">
+    <figure class="poster">
+      <button type="button" class="poster-open" data-full="images/poster-1.jpg" aria-label="포스터 1 크게 보기: 자연을 달리며 보이지 않는 전파를 찾아라">
+        <img src="images/poster-1-thumb.jpg" alt="포스터: 자연을 달리며 보이지 않는 전파를 찾아라! 라디오 오리엔티어링(ARDF). 자격 무관, 소리로 찾는 숲속 보물찾기, 무료 장비 대여와 입문 교육, 온 가족 아웃도어 스포츠, 참가 안내와 밴드 QR" width="720" height="1290" loading="lazy">
+        <span class="zoom" aria-hidden="true">⤢ 크게 보기</span>
+      </button>
+      <figcaption>
+        <span>참가 안내 · 밴드 QR</span>
+        <a class="dl" href="images/poster-1.jpg" download="ARDF-포스터-참가안내.jpg">내려받기 ↓</a>
+      </figcaption>
+    </figure>
+    <figure class="poster">
+      <button type="button" class="poster-open" data-full="images/poster-2.jpg" aria-label="포스터 2 크게 보기: 무선방향탐지와 함께하는 오리엔티어링">
+        <img src="images/poster-2-thumb.jpg" alt="포스터: 자연 속에서 즐기는 무선 스포츠! 무선방향탐지와 함께하는 오리엔티어링. 전파 신호 청취, 방향과 위치 확인, 이동 경로 설계, 송신기 발견과 인증" width="720" height="1290" loading="lazy">
+        <span class="zoom" aria-hidden="true">⤢ 크게 보기</span>
+      </button>
+      <figcaption>
+        <span>경기 소개 · 4단계</span>
+        <a class="dl" href="images/poster-2.jpg" download="ARDF-포스터-경기소개.jpg">내려받기 ↓</a>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="포스터 크게 보기">
+  <div class="lb-bar">
+    <a class="lb-btn" id="lb-dl" href="#" download>내려받기 ↓</a>
+    <button type="button" class="lb-btn" id="lb-close">닫기 ✕</button>
+  </div>
+  <img id="lb-img" src="" alt="">
+</div>
+
 <footer class="sources">
   <h2>참고 · 출처</h2>
   <ul>
@@ -1004,6 +1068,25 @@ html.embedded .page { padding-bottom: 24px; }
   });
   if ('ResizeObserver' in window) new ResizeObserver(function(){ send(false); }).observe(document.querySelector('.page'));
   window.addEventListener('load', function(){ send(true); });
+})();
+</script>
+<script>
+/* 포스터 크게 보기: 블로그 안(iframe)에서는 새 창으로 원본을 엶 */
+(function(){
+  var lb = document.getElementById('lightbox'), img = document.getElementById('lb-img'), dl = document.getElementById('lb-dl');
+  var last = null;
+  function open(btn){
+    var src = btn.getAttribute('data-full');
+    if (window.self !== window.top) { window.open(src, '_blank', 'noopener'); return; }
+    last = btn; img.src = src; img.alt = btn.querySelector('img').alt; dl.href = src;
+    dl.setAttribute('download', btn.closest('.poster').querySelector('.dl').getAttribute('download'));
+    lb.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('lb-close').focus();
+  }
+  function close(){ lb.hidden = true; document.body.style.overflow = ''; img.src = ''; if (last) last.focus(); }
+  document.querySelectorAll('.poster-open').forEach(function(b){ b.addEventListener('click', function(){ open(b); }); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  lb.addEventListener('click', function(e){ if (e.target === lb || e.target === img) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !lb.hidden) close(); });
 })();
 </script>
 </body>
