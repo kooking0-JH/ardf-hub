@@ -793,6 +793,10 @@ table.cmp td .mono { font-size: 0.92em; }
 .jump small { display: block; color: var(--ink-2); font-size: 0.85rem; }
 .jump .ja { margin-left: auto; font-size: 1.2rem; color: var(--ink-3); }
 
+.hub-jump { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cards.one { grid-template-columns: 1fr; }
+.card.review { border-top-color: var(--band144); }
+.h3s { font-size: 0.6em; font-weight: 600; color: var(--ink-3); margin-left: 6px; }
 .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .card { border: 1px solid var(--line); border-top: 3px solid var(--ink); border-radius: 8px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; background: #fff; }
 .card.main { border-top-color: var(--flag); background: linear-gradient(#fff, #fff) padding-box; box-shadow: 0 0 0 1px var(--flag-soft); }
@@ -838,7 +842,7 @@ html.embedded .page { padding-bottom: 24px; }
     <h1>ARDF 자료실
       <small>전파 방향 탐지 경기를 처음 시작하는 사람부터 대회를 준비하는 선수까지</small>
     </h1>
-    <p class="hero-lead">숲에 숨은 송신기를 수신기와 지도, 나침반으로 찾아 달리는 경기입니다. 흩어져 있던 자료를 목적에 따라 두 갈래로 모았습니다. 처음이라면 1번부터, 대회를 앞두고 있다면 2번에서 필요한 주제를 고르십시오.</p>
+    <p class="hero-lead">숲에 숨은 송신기를 수신기와 지도, 나침반으로 찾아 달리는 경기입니다. 흩어져 있던 자료를 목적에 따라 모았습니다. 처음이라면 1번부터, 대회를 앞두고 있다면 2번, 경기를 마쳤다면 3번에서 내 경로를 돌아보십시오.</p>
   </div>
 </header>
 
@@ -852,6 +856,7 @@ html.embedded .page { padding-bottom: 24px; }
 <nav class="hub-jump" aria-label="바로 가기">
   <a class="jump b1" href="#start"><span class="jn">1</span><span><b>ARDF가 처음이라면</b><small>입문 가이드 · FAQ</small></span><span class="ja">↓</span></a>
   <a class="jump b2" href="#race"><span class="jn">2</span><span><b>대회 준비</b><small>종목 · 전파 · 지도 · 수신기 · 대회 소식</small></span><span class="ja">↓</span></a>
+  <a class="jump b3" href="#after"><span class="jn">3</span><span><b>경기를 마쳤다면</b><small>GPX로 내 경로 복기하기</small></span><span class="ja">↓</span></a>
 </nav>
 
 <!-- ===================== 1 ===================== -->
@@ -934,6 +939,26 @@ html.embedded .page { padding-bottom: 24px; }
         <a class="go" href="https://band.us/band/591018" target="_blank" rel="noopener">대회 공지 밴드 <span aria-hidden="true">→</span></a>
         <a class="go alt" href="https://6k5ehn.tistory.com/category/Radio%20Orienteering" target="_top">블로그 ARDF 글 <span aria-hidden="true">→</span></a>
       </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section class="chapter" id="after">
+  <div class="ch-head">
+    <div class="ch-num">3</div>
+    <div class="ch-title">
+      <h2>경기를 마쳤다면</h2>
+      <p>내가 달린 길을 다시 보며 다음 경기를 준비합니다</p>
+    </div>
+  </div>
+  <div class="cards one">
+    <article class="card review">
+      <div class="card-top"><span class="kind gh">도구 · GPX</span></div>
+      <h3>ARDF 코스 리뷰 <span class="h3s">경기 복기</span></h3>
+      <p>경기 때 기록한 GPX 파일을 불러와 내가 달린 경로를 3D 지도 위에 다시 그려 봅니다. 어디서 방향을 잘못 잡았는지, 어느 구간에서 시간을 많이 썼는지 돌아보며 다음 경기의 탐색 순서와 경로 선택을 다듬을 수 있습니다.</p>
+      <ul class="chips"><li>GPX 불러오기</li><li>3D 지도</li><li>구간별 기록</li><li>경로 선택 돌아보기</li></ul>
+      <a class="go" href="https://kooking0-jh.github.io/ARDF-coursereview/" target="_blank" rel="noopener">코스 리뷰 열기 <span aria-hidden="true">→</span></a>
     </article>
   </div>
 </section>
